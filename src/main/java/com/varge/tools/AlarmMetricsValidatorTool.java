@@ -1,9 +1,9 @@
-package com.varge.commands;
+package com.varge.tools;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.varge.modules.AuthModule;
-import com.varge.samples.AlarmMetricsValidator;
+import com.varge.services.AlarmMetricsValidator;
 import software.amazon.awssdk.regions.Region;
 
 public class AlarmMetricsValidatorTool {
@@ -12,7 +12,7 @@ public class AlarmMetricsValidatorTool {
         Injector injector = Guice.createInjector(new AuthModule(Region.US_WEST_2, "89385375875"));
         AlarmMetricsValidator validator = injector.getInstance(AlarmMetricsValidator.class);
 
-        validator.listAllAlarms();
+        validator.validateAllAlarms();
     }
 
 }
